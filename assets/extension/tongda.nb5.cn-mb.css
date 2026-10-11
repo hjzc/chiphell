@@ -1,0 +1,22 @@
+@media (prefers-color-scheme: dark) {
+#scform_forum>div>input[name='srchtxt'] { background-color:#000!important;}
+body>div.cl {border-bottom: 1px solid #242424!important;}
+.forumlist .mlist2 li {border-bottom: 1px solid #323232!important;border-right: 1px solid #323232!important;}
+#mshow .mshowhd {border-bottom: 1px dashed #222!important;}
+body > table.credits_uc{filter: invert()!important;}
+.divsearchli {background-color: #000!important;}
+body > div.buyprice{filter: invert()!important;}
+.divsearchli {border-bottom: #222 2px solid !important;}
+form[id*='credits_do']{background-color: #333 !important;}
+.credits_do {filter: invert()!important;}
+.divsearchli ul li.current {background-color: #333!important;}
+.topmenu {filter: invert()!important;}
+.credits_dosum {filter: invert()!important;}
+body > dl.list {filter: invert()!important;}
+div.divsearchli~table:not([class]){filter: invert()!important;}
+.layui-m-layer {filter: invert()!important;}
+
+
+
+
+}

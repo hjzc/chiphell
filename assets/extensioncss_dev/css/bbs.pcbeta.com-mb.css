@@ -1,0 +1,9 @@
+@media (prefers-color-scheme: dark) {
+.search-hot {border-top: 1px solid #222!important;border-bottom: 1px solid #222!important;background-color: #000!important;}
+.search-hot li a {border-top: 1px solid #222!important;}
+.threadlist_box h2 {background-color: #603a3a!important;border-top: #603a3a!important;}
+.pbl li {border-left: 1px solid #333!important;}
+
+
+
+}

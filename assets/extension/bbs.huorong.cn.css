@@ -1,0 +1,40 @@
+@media (prefers-color-scheme: dark) {
+.footerbox {background: #111!important;}
+.fl {background: #111 !important;}
+.fl .bm {background-color: #221d15 !important;}
+.top_box {background: #222!important;}
+.turing_postlist {border-bottom: 1px solid rgba(0, 0, 0, 0)!important;}
+.turing_separatorline h3 {background: #333!important;border-bottom: 1px solid #333!important;}
+.b_bw {background: #666!important;}
+.weixin, .hot, .partner, .labelbox {background: #666!important;}
+.hot_forum .lc {border-right: 1px solid #666!important;}
+.hot_forum li {border-bottom: 1px solid #666!important;}
+.hot h1, .partner h1, .labelbox h1, .lidroid_bm h1 {border-bottom: solid 1px #666!important;background: #666 no-repeat!important;}
+.labelbox h2 {color: #aaa!important;}
+.pi strong a {background-color: #111!important;}
+.pi {border-bottom: 1px dashed #111!important;}
+.tr_ztfl {background-color: #555!important;}
+div.dbw {background-color: #222!important; border-top: 1px solid #222!important;}
+.tl .kmtops .showmenu {color: #d0bebe!important; background: #000!important;}
+.card_gender_0 {background: #000!important;}
+.card_gender_1 {background: #000!important;}
+.card_gender_2 {background: #000!important;}
+.card_info {border: dashed #444!important;}
+.card .o a {border: 1px solid #333!important;background: #121212!important;}
+.trp_pop {background: #333!important;}
+.buddy li {border: 1px solid #121212!important;background: #121212!important;}
+.tbn li.a {border-top: 1px solid #141313!important;}
+body > div[style*=background]{background-color: #221d15!important;}
+.locked {background: #333 url(https://bbs.huorong.cn/template/turing_dz283/images/img/locked.gif) no-repeat 6px 50% !important;}
+.pnpost .pn { font-size: medium !important;}
+div.pi > div.pls.ptn.pbn{ background:#353232!important;background-color: #353232!important;}
+.xi2, .xi2 a, .xi3 a {color: #8b8a8a!important;}
+#ct > div[style*=e3e0e0]{border-bottom: 1px solid #121212!important;}
+#banben_ruanjian[style*=e3e0e0]{border-bottom: 1px solid #121212!important;}
+#banben_ruanjian> li:nth-child(1)[style*=e3e0e0]{border-right: 1px solid #121212!important;}
+
+
+
+
+
+}

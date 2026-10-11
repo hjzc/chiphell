@@ -1,0 +1,26 @@
+@media (prefers-color-scheme: dark) {
+:root {
+  --j-bg-color: #333;
+  --j-top-bar-bg-color: #121212;
+  --j-bot-bar-bg-color: #222;
+  --j-pop-bg-color: #444;
+  --j-pop-bg1-color: #666;
+  --j-color: #fff;
+  --j-1-color: #ccc;
+}
+body {background: var(--j-bg-color)!important;color: var(--j-color)!important;}
+#bottom_layer {background: var(--j-bot-bar-bg-color)!important;}
+.open-content-info .tip-hover-panel .rest_info_tip {background: var(--j-pop-bg-color)!important;}
+.s-top-wrap {background: var(--j-top-bar-bg-color)!important;}
+.panel_2vfwX {background: var(--j-pop-bg1-color)!important;color:var(--j-color)!important;}
+.c-color-t {color: var(--j-1-color);}
+.s-top-left-new .s-top-more {background: var(--j-pop-bg1-color)!important;}
+#chat-input-main .chat-input-wrapper {background: var( --j-pop-bg1-color)!important;;}
+#ent_sug {color: var(--j-1-color)!important;}
+.ai-bdsug.ai-bdsug-new ul li.bdsug-ask-tail .sug-content b {color:  var(--j-1-color)!important;}
+.ai-bdsug.ai-bdsug-new ul li.bdsug-store span {color:  var(--j-1-color)!important;}
+#chat-input-main .chat-input-tool .right-tools-wrapper {background: var(--j-top-bar-bg-color)!important;}
+
+
+
+}

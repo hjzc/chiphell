@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>chiphell</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>MIT</project_license>
+    <name>Chiphell</name>
+    <summary>Chiphell application</summary>
+    <description>
+        <p>Chiphell web site client app</p>
+    </description>
+    <launchable type="desktop-id">chiphell.desktop</launchable>
+    <url type="homepage">https://www.chiphell.com/</url>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://cliff.imwork.net:19999/chiphell/images/mac_0.png</image>
+        </screenshot>
+    </screenshots>
+    <releases>
+        <release version="1.0.11" date="2026-04-02"/>
+    </releases>
+    <provides>
+        <id>chiphell.desktop</id>
+    </provides>
+    <content_rating type="oars-1.0" />
+    <developer id="io.github.inreader">
+        <name>ZorroZhu</name>
+    </developer>
+    <update_contact>77964204@qq.com</update_contact>
+</component>

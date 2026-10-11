@@ -1,0 +1,27 @@
+@media (prefers-color-scheme: dark) {
+.box {background: #000!important;}
+.bm .bm_inf {background: #333!important;}
+.vt .bm .bm_c {border-top: 1px #333 solid!important;border-bottom: 1px #333 solid!important;background: #333!important;}
+.txt, .txt_s, .px {border: 1px solid #444!important;background: #444!important;color: #d0bebe!important}
+.even {background: #222!important;}
+.bm .bm_c {border-bottom: 1px solid #242121!important;}
+.bt {border-top: 1px #A90000 solid !important;}
+.profile_table th {border-top: 2px #333 solid!important;}
+.profile_table td {border-top: 1px #333 solid!important;}
+.bm_h {background: #790000 !important;border-bottom: 1px solid #790000 !important;}
+.attach_h {background: #000 !important;border-bottom: 1px solid #222 !important;}
+.fastpost .input {border: 1px solid #555!important;background-color: #222!important;color: #d0bebe!important;}
+.plc .avatar img {border: 1px solid #555!important;}
+.btn_pn_blue {background: #2498D8!important;color: #d0bebe!important;}
+.threadlist .thread_tit {border-bottom: 1px solid #222!important;}
+.threadlist .num {filter: invert(90%)!important;}
+.user_fun li a, .nav .icon_edit a {filter: invert(90%)!important;}
+.user_fun .on {filter: invert(100%)!important;}
+.myinfo_list li {background: #242424!important;}
+#wp .bm_h h2 {background: #790000!important;}
+#wp .bm_h .o img {filter: opacity(0)!important;}
+.search .input {filter: invert()!important;}
+
+
+
+}

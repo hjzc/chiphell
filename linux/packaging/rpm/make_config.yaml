@@ -1,0 +1,29 @@
+icon: assets/logo.png
+summary: Chiphell
+group: Application/Utility
+vendor: Zorro Zhu
+packager: Zorro Zhu
+packagerEmail: 77964204@qq.com
+license: MIT
+url: https://cliff.imwork.net:19999/chiphell/index.html
+
+display_name: Chiphell
+
+keywords:
+  - Chiphell
+  - forum
+  - PCDIY
+  - Application
+
+generic_name: chiphell
+
+metainfo: linux/packaging/chiphell.appdata.xml
+
+categories:
+  - Network
+  - Utility
+  - Application
+
+startup_notify: true
+
+requires:

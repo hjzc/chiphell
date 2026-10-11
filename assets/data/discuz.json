@@ -1,0 +1,57 @@
+[
+    {
+        "combine": "2-chiphell.com-www.chiphell.com",
+        "host": "www.chiphell.com",
+        "title": "Chiphell",
+        "source" :1,
+        "scheme" : 2,
+        "selected":1,
+        "type": 1,
+        "domain": "chiphell.com",
+        "cookiepre":"v2x4_48dd_"
+    },
+    {
+        "combine": "2-pcbeta.com-bbs.pcbeta.com",
+        "host": "bbs.pcbeta.com",
+        "title": "远景论坛",
+        "source" :1,
+        "scheme": 2,
+        "selected":0,
+        "type": 1,
+        "domain": "pcbeta.com",
+        "cookiepre":"jqCP_887f_"
+    },
+    {
+        "combine": "2--bbs.huorong.cn",
+        "host": "bbs.huorong.cn",
+        "title": "火绒安全软件",
+        "source" :1,
+        "scheme": 2,
+        "selected":0,
+        "type": 1,
+        "domain": "",
+        "cookiepre":"TFR5_2132_"
+    },
+    {
+        "combine": "2-nb5.cn-tongda.nb5.cn",
+        "host": "tongda.nb5.cn",
+        "title": "NB5牛论坛",
+        "source" :1,
+        "scheme": 2,
+        "selected":0,
+        "type": 1,
+        "domain": "nb5.cn",
+        "cookiepre":"eNn3_d917_"
+    },
+    {
+        "combine": "2--www.birdnet.cn",
+        "host": "www.birdnet.cn",
+        "title": "鸟网",
+        "source" :1,
+        "scheme": 2,
+        "selected":0,
+        "type": 1,
+        "domain": "",
+        "cookiepre":"Uy6T_2132_"
+    }
+]

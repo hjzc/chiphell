@@ -1,0 +1,9 @@
+#生成linux snap app 配置文件:
+#flutter pub add --dev icons_launcher / flutter pub add icons_launcher
+#dart run icons_launcher:create --path icons_launcher.yaml
+#此文件使用命令：dart run icons_launcher:create 
+icons_launcher:
+  platforms:
+      linux:
+        enable: true
+        image_path: 'assets/logo.png'

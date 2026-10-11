@@ -1,0 +1,128 @@
+@media (prefers-color-scheme: dark) {
+:root {
+    --size-color:#d0bebe !important;
+    --size-bg-bgf5:#3e3e3e !important;
+    /*
+	--primary-color: #ffffff;	
+	--size-color-black:#666666;
+	--size-color-gray:#999999;
+	--size-bg-bgf5:#f5f5f5;
+	--green-color:#14af68;
+	--secondary-color: #eeeeee;		
+	--border-color: #DDDDDD;
+	--red-color: #DF3532;
+	--blue-color: #284391;
+	--size-bg-bgf9: #f9f9f9;
+    */
+}
+.jinghuatupian4 ul li {background: #121212!important;border: 0px solid #121212!important;}
+.zhutituijian ul {background-color: #121212!important;}
+.zhutituijian ul li, .niaowanggonggao ul li {background: #121212!important;}
+.jinghuatupian-mrjz ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian-mrjz ul li p {color: #c6b3b3!important;}
+.jinghuatupian-nxkb1 ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian ul li p {color: #c6b3b3!important;}
+.jinghuatupian1 ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian1 ul li p {color: #c6b3b3!important;}
+.jinghuatupian-tw ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian-tw ul li p {color: #c6b3b3!important;}
+.jinghuatupian1-4 ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian1-4 ul li p {color: #c6b3b3!important;}
+.jinghuatupian-tdzs ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian5 ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian1-4 {background-color: #333!important;}
+.jinghuatupian1-41 {background-color: #333!important;}
+.jinghuatupian1-41 ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian1-41 ul li p {color: #c6b3b3!important;}
+.jinghuatupian6 ul li  {background: #121212!important;border: 0px solid #121212!important;}
+.zhutituijian-szzj ul li {background: #121212!important;border: 0px solid #121212!important;}
+.jinghuatupian-jpsx ul li {background: #121212!important;border: 0px solid #121212!important;}
+.zhutituijian-szzj ul {background-color:#121212!important;}
+.float-right .card1 {color: #fff!important;background: #000!important;border: 1px solid #333!important;}
+.float-right .card2 {color: #fff!important;background: #000!important;border: 1px solid #333!important;}
+.frame-title, .frametitle, .tab-title {background: #121212!important;}
+#index_ann {background: #121212!important;}
+.forum_postlist .list_a {border: 1px solid #000!important;}
+.forum_postlist .list_b {border: 1px solid #000!important;}
+.forum_postlist .list_c {border: 1px solid #000!important;}
+.forum_postlist .list_d {border: 1px solid #000!important;}
+.forum_postlist .list_e {border: 1px solid #000!important;}
+.forum_postlist .list_f {border: 1px solid #000!important;}
+.forum_user {background: #000!important;border: 1px solid #333!important;}
+.bdl, .bm {background-color: #242424!important;border-color: #444!important;}
+.bdl dt {border-top-color: #0a0a0a!important;;border: solid #0a0a0a!important;background: #0a0a0a !important;}
+.tl th, .tl td {border-top: 1px solid rgba(245, 17, 17, 0.06)!important;}
+.po {border-top: 1px dashed rgb(61, 61, 61)!important;}
+.one-sms-page {border: 1px solid #222!important;background: #222!important;}
+.one-sms-login {background: #444!important;}
+.one-sms-page .one-sms-login {border: 0 solid #444!important;}
+.login-form-thirdparty-tips .thirdparty-tips-text {color: #fff!important;}
+.login-form-item {border: 1px solid #0c0c0d!important;}
+.bordersettop {border-top: solid 1px #333!important;}
+body > div:nth-child(11) > img[src*='longline.png']{display: none !important;}
+.login-form-country-dropdown {background-color: #333!important;border: 1px solid #333!important;}
+.login-form-dropdown-item.dropdown-selected, .login-form-dropdown-item:hover {background-color: #000!important;}
+#p_btn span {color: #878080!important;}
+#p_btn a, #p_btn i {color: #878080!important;}
+body > div:nth-child(7){background-color: #333!important;}
+.headtop-content {background: #666!important;color: #d0bebe!important;}
+.bordersetbottom {border-bottom: solid 1px #666!important;}
+.birdesearch {color: #d0bebe!important;background: #444!important;}
+.searchbuttonsubmit {background: #131313!important;color: #2a2626!important;}
+.mksearchtitle {color: #d0bebe!important;}
+#wp > div:nth-child(9){background-color: #333!important;}
+.pbl {border-color: #121212!important;background: #121212!important;}
+.pbl li {border-right: 1px solid #333!important;}
+.pbl a {border: solid #121212!important;background-color: #000!important;}
+.pbl a:hover {border: solid #121212!important;background-color: #666!important;}
+.pbls a{background-color: #666!important;}
+.pbls a:hover{background-color: #666!important;}
+.tbn li.a {border-top: 1px solid #141313!important;}
+.gallerydetailbox-right {background: #121212!important;}
+.buttonthree {border-top: solid 1px #121212!important;}
+.brandxie {color: #d0bebe !important;background: #121212!important;}
+.borderbottome1 {border-bottom: solid 1px #000!important;}
+.titlejxz {color: #d0bebe!important;}
+.activetitle {color: #d0bebe!important;}
+.monthtop {background: linear-gradient( #444 0%, #444 100%)!important;}
+.tribeDetailContent {color: #d0bebe!important;}
+.oshr {border-color: #454141 #454141 #454141 #454141!important;background: #121212!important;}
+.signboxmain {background: #3e3e3e!important;}
+#wp > div.wp > div:nth-child(1) {border-bottom: 2px solid #333!important;}
+#wp > div.wp > div:nth-child(3){border-bottom: 2px solid #333!important;}
+#mscenter {border: 5px solid #333!important;background: #121212!important;}
+.mscenter_2 {background: #333!important;}
+.mscenter_4 {background: #333!important;}
+.title-divider {color: #d0bebe!important;}
+.scrollitemIndex span i {color: #d0bebe!important;}
+.dzboxsetinfo div p span {color: #d0bebe!important;}
+span .titletext{color: #d0bebe!important;}
+.mnbv {border: 1px solid #444!important;background: #121212!important;}
+.nav-tabs {border-bottom: #121212!important;}
+.mnbv ul.nav-tabs li a {background: #222!important;}
+.mnbv ul li.active {border-bottom: 1px solid #555!important;background-color: #222!important;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {border: 1px solid #555!important;background-color: #222!important;}
+.table_title {background: #444!important;}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {border-top: 1px solid #333!important;}
+.birdlinecontent {background: #121212!important;}
+.birdlinecontentcimg h3 {color: #d0bebe!important;}
+.linecontent span {color: #d0bebe!important;}
+.birdlinecontentcimg ul li {background: #242424!important;}
+.linetabBox ul li:hover, .linetabBox ul li.hover {background: #090909!important;}
+.card_gender_0 {background: #000!important;}
+.card_gender_1 {background: #000!important;}
+.card_gender_2 {background: #000!important;}
+.card_info {border: dashed #444!important;}
+.card .o a {border: 1px solid #333!important;background: #121212!important;}
+.user-top {color: #d0bebe!important;background-color: #121212!important;}
+.pictureTitle {background-color: #121212!important;}
+.tag {background: #060606!important;color: #333333!important;}
+.tag>font {color: #333333!important;}
+.blueText {color: #f20f0f!important;}
+div#diy1{display: none !important;}
+#ct > div.mn > div:nth-child(3){display: none !important;}
+div#diyforumdisplaybottom{display: none !important;}
+
+
+}

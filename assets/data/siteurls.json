@@ -1,0 +1,429 @@
+[
+  {
+    "title" : "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+    "host" : "www.bilibili.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "微博",
+    "host" : "weibo.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "腾讯网",
+    "host" : "www.qq.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "Chiphell",
+    "host" : "www.chiphell.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "知乎",
+    "host" : "www.zhihu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "hao123",
+    "host" : "www.hao123.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "网易",
+    "host" : "www.163.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "百度地图",
+    "host" : "map.baidu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "京东(JD.COM)",
+    "host" : "www.jd.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "Xiaomi官方网站",
+    "host" : "www.mi.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "人民网",
+    "host" : "www.people.com.cn",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "新华网",
+    "host" : "www.xinhuanet.com",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "央视网",
+    "host" : "www.cctv.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "国际在线",
+    "host" : "www.cri.cn",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "中国日报网",
+    "host" : "cn.chinadaily.com.cn",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "中国网",
+    "host" : "www.china.com.cn",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "中国经济网",
+    "host" : "www.ce.cn",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "光明网",
+    "host" : "www.gmw.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "央广网·中央广播电视总台",
+    "host" : "www.cnr.cn",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "求是网",
+    "host" : "www.qstheory.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "中国青年网",
+    "host" : "www.youth.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "搜狐",
+    "host" : "www.sohu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "爱奇艺",
+    "host" : "www.iqiyi.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "深圳政府在线",
+    "host" : "www.sz.gov.cn",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "淘宝",
+    "host" : "www.taobao.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "好看视频",
+    "host" : "haokan.baidu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "携程旅行网",
+    "host" : "www.ctrip.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "天猫国际",
+    "host" : "www.tmall.hk",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "虎扑体育-虎扑网",
+    "host" : "www.hupu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "58安居客",
+    "host" : "anjuke.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "豆包",
+    "host" : "www.doubao.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "Apple (中国大陆)",
+    "host" : "www.apple.com.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "中国铁路12306网站",
+    "host" : "www.12306.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "凤凰网",
+    "host" : "www.ifeng.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "文心一言",
+    "host" : "yiyan.baidu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "千问",
+    "host" : "qianwen.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "百度文库",
+    "host" : "wenku.baidu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "爱企查",
+    "host" : "aiqicha.baidu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "军事频道_凤凰网",
+    "host" : "mil.ifeng.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "华为商城VMALL",
+    "host" : "www.vmall.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "华军软件园",
+    "host" : "www.onlinedown.net",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "汽车之家",
+    "host" : "www.autohome.com.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "起点中文网",
+    "host" : "www.qidian.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "中国体彩网",
+    "host" : "www.lottery.gov.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "中国福彩网",
+    "host" : "www.cwl.gov.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "优酷 - 为好内容全力以赴",
+    "host" : "www.youku.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "百度直播",
+    "host" : "live.baidu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "搜狐视频",
+    "host" : "tv.sohu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "芒果TV-天生青春",
+    "host" : "www.mgtv.com",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "咪咕视频",
+    "host" : "www.miguvideo.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "CCTV节目官网_央视网",
+    "host" : "tv.cctv.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "CSDN",
+    "host" : "www.csdn.net",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "虎扑社区-虎扑网",
+    "host" : "bbs.hupu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "百度贴吧",
+    "host" : "tieba.baidu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "豆瓣",
+    "host" : "www.douban.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "斗鱼 - 看见每种热爱",
+    "host" : "www.douyu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "观察者网",
+    "host" : "www.guancha.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "新闻中心首页_新浪网",
+    "host" : "news.sina.com.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "环球网",
+    "host" : "www.huanqiu.com",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  },
+  {
+    "title" : "参考消息",
+    "host" : "www.cankaoxiaoxi.com",
+    "weight" : 0,
+    "scheme" : 1,
+    "useCount" : 0
+  },
+  {
+    "title" : "马蜂窝",
+    "host" : "www.mafengwo.cn",
+    "weight" : 0,
+    "scheme" : 0,
+    "useCount" : 0
+  }
+]

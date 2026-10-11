@@ -1,0 +1,20 @@
+@media (prefers-color-scheme: dark) {
+#PC, #H5 { background-color:#333!important;}
+#PC .container {background-color: #666!important;}
+#H5 .h5-container {background-color: #666!important;}
+.regtable tr td.tdregtitle {background-color: #121212!important;}
+.regtable tr td {border: #000 1px solid !important;}
+.regtable tr td.tdregbody table tr td {border-bottom: #000 1px solid !important;}
+#ft {border-top: 1px solid #333!important;}
+#xinxi {border-bottom: 1px solid #333!important;}
+#aliyunCaptcha-sliding-wrapper #aliyunCaptcha-sliding-body {background: #555!important;}
+#it618_members > table > tbody > tr:nth-child(9) > td {background-color: #666!important;}
+#hiddenpoststip {background: #a90000!important;}
+.pl .blockcode {border: 1px solid #222!important;background: #222!important;}
+.pbls a, .pbls a:hover {background-color: #0d0c0c!important;}
+.pbls a {background-color: #0d0c0c!important;}
+
+
+
+
+}

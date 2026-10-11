@@ -1,0 +1,47 @@
+display_name: Chiphell
+
+icon: assets/logo.png
+
+keywords:
+  - Chiphell
+  - PCDIY
+  - Application
+
+generic_name: Chiphell
+
+# supported mime types that can be opened using this application
+# supported_mime_type:
+#   - audio/mpeg
+
+metainfo: linux/packaging/chiphell.appdata.xml
+
+actions:
+  - name: Zorro Zhu
+    label: zorro-zhu
+    arguments:
+      - --zorro
+      - zhu
+  # - name: Say Bye
+  #   label: say-bye
+  #   arguments:
+  #     - --say
+  #     - bye
+
+categories:
+  - Utility
+
+startup_notify: true
+
+# You can specify the shared libraries that you want to bundle with your app
+#
+# fastforge automatically detects the shared libraries that your app
+# depends on, but you can also specify them manually here.
+# 
+# The following example shows how to bundle the libcurl library with your app.
+#
+include: 
+  #- libcurl.so.4
+  #- libffi.so.8
+  - libjpeg.so.8
+
+#include: []

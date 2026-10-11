@@ -1,0 +1,12 @@
+@media (prefers-color-scheme: dark) {
+.one-touch-app-header {background: #000!important;}
+.one-sms-login {background: #121212!important;}
+#username {background-color: #000!important;color: #d0bebe!important;}
+#password {background-color: #000!important;color: #d0bebe!important;}
+.login-form-thirdparty-tips .thirdparty-tips-text {color: #d0bebe!important;}
+.nav {background:#121212!important;}
+input.txt{color: #d0bebe!important;}
+.myinfo_list li {background: #121212!important;}
+
+
+}

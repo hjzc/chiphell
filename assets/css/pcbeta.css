@@ -1,0 +1,21 @@
+@media (prefers-color-scheme: dark) {
+/* pc */
+.fl .bm_c {background: #221d15!important;}
+#toptb {border-bottom: 1px solid #221d15!important; background: #221d15!important;}
+#nv li, #home {background: #574949!important;}
+#ct {background: #221d15 0 0px!important;}
+#moodfm textarea:focus {background-color: #121212!important;}
+#moodfm textarea {background-color: #121212!important;}
+.tl th, .tl td {border-bottom: 1px solid #666161!important;}
+.appl {border: 1px solid #232323!important;background-color: #232323!important;}
+.mla .c {background: #333!important;box-shadow: 1px 1px 2px #333!important;}
+.bm_h .o img, .bm_h .o em {color: #e40e0e!important;}
+#e_simple, #e_fullswitcher {border: 1px solid #232323!important; background: #666161!important;}
+.edt .bar a {border: 1px solid #000000!important;}
+.edt .b1r, .edt .b2r {border-right: 1px solid #000000!important;border-left: 1px solid #000000!important;}
+.edt .btn {border-right: 1px solid #000000!important;}
+.chart em {color: #666161!important;}
+
+/* mobile */
+
+}

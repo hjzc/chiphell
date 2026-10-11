@@ -1,0 +1,8 @@
+@media (prefers-color-scheme: dark) {
+.medallist .tbmu {background: #121212!important;border: 1px dashed #121212!important;}
+.mgcl .mgcl_box {background: #121212!important;}
+.imglist li {border-bottom: 1px solid #323232!important;}
+.home_feed_time span {color: #691111!important;background: #0a0a0a!important;}
+.home_feed_time:after {background: #0a0a0a!important;}
+
+}

@@ -1,0 +1,9 @@
+@media (prefers-color-scheme: dark) {
+div#b_nav>div.nav~div[style*='background'] {display: none !important;}
+#m_posts_c .postbox~span{display: none !important;}
+div#toptopics~span>div[style*='background'] {display: none !important;}
+body {filter: invert()!important;}
+.w100>div[style*='background'] {display: none !important;}
+
+
+}
