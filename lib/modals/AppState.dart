@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:chiphell/data/black_list.dart';
 import 'package:chiphell/data/challenge_hosts_manager.dart';
 import 'package:chiphell/data/database_manager.dart';
@@ -12,6 +13,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+
 import '../common/type_utils.dart';
 import '../data/app_prefs.dart';
 import '../data/zj_memory_cache.dart';
@@ -24,6 +26,7 @@ import 'web_user.dart';
 import '../utils/zs_log.dart';
 import 'zj_cache.dart';
 import 'web_image_url_downloader.dart';
+
 //import 'package:easy_notifications/easy_notifications.dart';
 
 typedef ThemeModeCallback = void Function(ThemeMode mode);
@@ -47,8 +50,8 @@ class AppState extends ChangeNotifier {
   bool _autoUpgrade = false;
   bool _autoImageGallery = true;
 
-  bool _webNotificationEnable = true;
-  bool _webChiphellNotificationEnable = true;
+  bool _webNotificationEnable = false;
+  bool _webChiphellNotificationEnable = false;
 
   ///侧边右滑退出
   bool _swipeRightExit = true;
@@ -90,8 +93,8 @@ class AppState extends ChangeNotifier {
   Future<void> init() async {
     _autoUpgrade = await AppPrefs.loadAutoUpgradeFromPrefs();
     _autoImageGallery = await AppPrefs.loadAutoImageGalleryFromPrefs();
-    _webNotificationEnable = await AppPrefs.loadValueFromPrefs(WebConstants.kPrefWebNotificationEnable, value: true);
-    _webChiphellNotificationEnable = await AppPrefs.loadValueFromPrefs(WebConstants.kPrefWebChiphellNotificationEnable, value: true);
+    _webNotificationEnable = await AppPrefs.loadValueFromPrefs(WebConstants.kPrefWebNotificationEnable, value: false);
+    _webChiphellNotificationEnable = await AppPrefs.loadValueFromPrefs(WebConstants.kPrefWebChiphellNotificationEnable, value: false);
 
     _webSearchEngin = await AppPrefs.loadValueFromPrefs(WebConstants.kPrefWebSearchEngin, type: APType.AT_Int, value: 0);
     _swipeRightExit = await AppPrefs.loadValueFromPrefs(WebConstants.kPrefSwipeRightExit, type: APType.AT_Bool, value: true);

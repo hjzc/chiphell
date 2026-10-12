@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -96,8 +97,7 @@ class ZjWebNotification {
   ZjWebNotification.fromJson(Map<String, dynamic> json, this._webViewController)
     : id = json['id'],
       actions = json['actions'] != null
-          ? (json['actions'].cast<Map<String, dynamic>>()
-                    as List<Map<String, dynamic>>)
+          ? (json['actions'].cast<Map<String, dynamic>>() as List<Map<String, dynamic>>)
                 .map((e) => ZjWebNotificationAction.fromJson(e))
                 .toList()
           : null,
@@ -172,16 +172,35 @@ abstract class ZjWebNotificationPermissionDb {
     }
   }
 
+  static int get length {
+    return _db.length;
+  }
+
+  static int get deniedCounts {
+    //var count = _db.values.map((e) => e == 'denied' ? e : null).where((e) => e != null).toList();
+    final count = _db.values.where((v) => v == 'denied').length;
+    return count;
+  }
+
+  static Future<bool> resetDenieds() async {
+    int olens = _db.length;
+    _db.removeWhere((key, value) => value == 'denied');
+    if (olens != _db.length) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(key, jsonEncode(_db));
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   static Future<bool> clear() async {
     _db.clear();
     final prefs = await SharedPreferences.getInstance();
     return await prefs.remove(key);
   }
 
-  static Future<bool> savePermission(
-    String host,
-    ZjWebNotificationPermission permission,
-  ) async {
+  static Future<bool> savePermission(String host, ZjWebNotificationPermission permission) async {
     _db[host] = permission.name.toLowerCase();
     final prefs = await SharedPreferences.getInstance();
     return await prefs.setString(key, jsonEncode(_db));

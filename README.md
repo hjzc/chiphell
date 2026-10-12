@@ -25,6 +25,7 @@
 
 ## 下载
 - [GitHub Releases](https://github.com/hjzc/chiphell/releases/tag/v1.0.19) - 适合访问 GitHub 较稳定的用户，获取最新发布版本。
+- [网盘下载](https://pan.baidu.com/s/1O9KYmWTJUXbrALZUWc-9Ng?pwd=cpwq)
 
 ## 使用协议
 本项目仅供个人学习与研究用途，下载内容仅限于个人非商业使用，严禁用于任何形式的商业目的、公开传播或分发。

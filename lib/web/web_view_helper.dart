@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+
 import 'package:chiphell/common/constants.dart';
 import 'package:chiphell/utils/file_save_helper.dart';
 import 'package:chiphell/utils/image_save_helper.dart';
@@ -14,6 +15,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vibration/vibration.dart';
+
 import '../data/black_list.dart';
 import '../modals/AppState.dart';
 import '../modals/WebImages.dart';
@@ -317,11 +319,11 @@ class WebViewHelper {
   Future<void> webRequestStop(WebUri? uri, bool docReady) async {
     if (AppState().webNotificationEnable && docReady && uri != null && (_getWebSiteSyn()?.isSite(uri.toString()) == true)) {
       ZjWebNotificationPermission? r = await _webNotificationController?.getPermission();
-      if (r != null) {
-        if (r == ZjWebNotificationPermission.DEFAULT ||
-            (AppState().webChiphellNotificationEnable && r == ZjWebNotificationPermission.DENIED)) {
+      if (r != null && AppState().webNotificationEnable && AppState().webChiphellNotificationEnable) {
+        if (r == ZjWebNotificationPermission.DEFAULT) {
           await _webNotificationController?.requestPermission();
-        } else if (AppState().webChiphellNotificationEnable && r == ZjWebNotificationPermission.GRANTED) {}
+        } else if (r == ZjWebNotificationPermission.DENIED) {
+        } else if (r == ZjWebNotificationPermission.GRANTED) {}
       }
     }
   }

@@ -2,6 +2,7 @@ import 'package:chiphell/modals/AppState.dart';
 import 'package:chiphell/modals/Settings.dart';
 import 'package:chiphell/modals/WebTextSize.dart';
 import 'package:chiphell/radio_options_alert_dialog.dart';
+import 'package:chiphell/sites/site_constants.dart';
 import 'package:chiphell/theme/theme_provider.dart';
 import 'package:chiphell/utils/file_save_helper.dart';
 import 'package:chiphell/utils/ui_utils.dart';
@@ -15,6 +16,7 @@ import 'package:provider/provider.dart';
 
 import 'common/type_utils.dart';
 import 'common/zj_status.dart';
+import 'web/zj_web_notification.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key, this.title});
@@ -344,6 +346,34 @@ class SettingPageState extends State<SettingPage>
             setState(() {
               appState.webNotificationEnable = !appState.webNotificationEnable;
               //关闭的话也会把 webChiphellNotificationEnable 关闭
+              if (appState.webNotificationEnable == true) {
+                //是否清空通知设置 resetWebNotificationPerimission
+                if (ZjWebNotificationPermissionDb.deniedCounts > 0) {
+                  Uiutils.showAlertDialog(
+                    context.mounted ? context : null,
+                    barrierDismissible: true,
+                    content: "重置通知（已拒绝），请确认！",
+                    callBackFun: (isOk) {
+                      if (isOk) {
+                        ZjWebNotificationPermissionDb.resetDenieds();
+                      }
+                    },
+                  );
+                }
+              } else {
+                if (ZjWebNotificationPermissionDb.length > 0) {
+                  Uiutils.showAlertDialog(
+                    context.mounted ? context : null,
+                    barrierDismissible: true,
+                    content: "重置所有通知权限，请确认！",
+                    callBackFun: (isOk) {
+                      if (isOk) {
+                        ZjWebNotificationPermissionDb.clear();
+                      }
+                    },
+                  );
+                }
+              }
             });
           },
         )..eninit(),
@@ -358,6 +388,11 @@ class SettingPageState extends State<SettingPage>
           callback: (context, item) {
             setState(() {
               appState.webChiphellNotificationEnable = !appState.webChiphellNotificationEnable;
+              if (appState.webChiphellNotificationEnable) {
+                if (ZjWebNotificationPermissionDb.getPermission(SiteConstants.kWebSiteAllHost) == ZjWebNotificationPermission.DENIED) {
+                  ZjWebNotificationPermissionDb.clearHost(SiteConstants.kWebSiteAllHost);
+                }
+              }
             });
           },
         )..eninit(),
