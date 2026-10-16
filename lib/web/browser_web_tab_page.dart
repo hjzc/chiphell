@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
+
 import 'package:chiphell/common/constants.dart';
 import 'package:chiphell/data/black_list.dart';
 import 'package:chiphell/long_press_alert_dialog.dart';
@@ -31,12 +32,15 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:swipe_image_gallery/swipe_image_gallery.dart';
+
 import '../common/type_utils.dart';
 import '../modals/WebImages.dart';
 import '../modals/web_mode.dart';
 import '../modals/web_user.dart';
 import '../overlay_web_image_gallery.dart';
+
 import 'package:pointer_interceptor/pointer_interceptor.dart';
+
 import '../sites/site_constants.dart';
 import '../sites/util_site.dart';
 import '../utils/util_map.dart';
@@ -287,6 +291,11 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
   bool get wantKeepAlive => !_isWindowClosed;
   WebSite? beforeSite;
   WebSite? site;
+
+  AppState? _appStateNoListen;
+  ThemeProvider? _themeProviderNoListen;
+  NetStateQueue? _netStateQueueNoListen;
+  WebTextSize? _webTextSizeNoListen;
 
   set isSiteMode(bool val) {
     if (val != _isSiteMode) {
@@ -638,8 +647,8 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
       ZsLog.d('Set tab webview ua: null');
     }
 
-    var netQueue = Provider.of<NetStateQueue>(context, listen: false);
-    netQueue.addListener(_onNetworkChanged);
+    //var netQueue = Provider.of<NetStateQueue>(context, listen: false);
+    //netQueue.addListener(_onNetworkChanged);
 
     if (_enableLoadsImagesAutomatically) {
       settings.loadsImagesAutomatically = appState.webImgMode == 0 ? true : false;
@@ -648,15 +657,15 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
     _webAutoImageGallery = appState.autoImageGallery;
     _webBlacklistMode = appState.blackListApply;
 
-    appState.addListener(_appStateValuesChanged);
+    //appState.addListener(_appStateValuesChanged);
 
     _updateUserPreferredContentMode(appState);
 
-    var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
-    themeProvider.addListener(_themeValuesChanged);
+    //var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    //themeProvider.addListener(_themeValuesChanged);
 
     var webTextSize = Provider.of<WebTextSize>(context, listen: false);
-    webTextSize.addListener(_webTextSizeChanged);
+    //webTextSize.addListener(_webTextSizeChanged);
 
     settings.textZoom = webTextSize.textRealZoom;
     settings.pageZoom = webTextSize.pageZoom;
@@ -848,21 +857,21 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
   }
 
   void cleanListener() {
-    if (mounted) {
-      var netQueue = Provider.of<NetStateQueue>(context, listen: false);
-      netQueue.removeListener(_onNetworkChanged);
-      var appState = Provider.of<AppState>(context, listen: false);
-      appState.removeListener(_appStateValuesChanged);
-      var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
-      themeProvider.removeListener(_themeValuesChanged);
-      var webTextSize = Provider.of<WebTextSize>(context, listen: false);
-      webTextSize.removeListener(_webTextSizeChanged);
-    } else {
-      AppState().removeListener(_appStateValuesChanged);
-      NetStateQueue().removeListener(_onNetworkChanged);
-      ThemeProvider().removeListener(_themeValuesChanged);
-      WebTextSize().removeListener(_webTextSizeChanged);
-    }
+    // if (mounted) {
+    //   var netQueue = Provider.of<NetStateQueue>(context, listen: false);
+    //   netQueue.removeListener(_onNetworkChanged);
+    //   var appState = Provider.of<AppState>(context, listen: false);
+    //   appState.removeListener(_appStateValuesChanged);
+    //   var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    //   themeProvider.removeListener(_themeValuesChanged);
+    //   var webTextSize = Provider.of<WebTextSize>(context, listen: false);
+    //   webTextSize.removeListener(_webTextSizeChanged);
+    // } else {
+    //   AppState().removeListener(_appStateValuesChanged);
+    //   NetStateQueue().removeListener(_onNetworkChanged);
+    //   ThemeProvider().removeListener(_themeValuesChanged);
+    //   WebTextSize().removeListener(_webTextSizeChanged);
+    // }
   }
 
   //上一个widget 调用。
@@ -881,10 +890,43 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
   didChangeDependencies() {
     //initState之后调用 不能有刷新页面的操作
     super.didChangeDependencies();
+
+    var appState = Provider.of<AppState>(context, listen: false);
+    if (_appStateNoListen != appState) {
+      _appStateNoListen?.removeListener(_appStateValuesChanged);
+      _appStateNoListen = appState;
+      _appStateNoListen?.addListener(_appStateValuesChanged);
+    }
+
+    var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    if (_themeProviderNoListen != themeProvider) {
+      _themeProviderNoListen?.removeListener(_themeValuesChanged);
+      _themeProviderNoListen = themeProvider;
+      _themeProviderNoListen?.addListener(_themeValuesChanged);
+    }
+
+    var webTextSize = Provider.of<WebTextSize>(context, listen: false);
+    if (_webTextSizeNoListen != webTextSize) {
+      _webTextSizeNoListen?.removeListener(_webTextSizeChanged);
+      _webTextSizeNoListen = webTextSize;
+      _webTextSizeNoListen?.addListener(_webTextSizeChanged);
+    }
+
+    var netQueue = Provider.of<NetStateQueue>(context, listen: false);
+    if (_netStateQueueNoListen != netQueue) {
+      _netStateQueueNoListen?.removeListener(_onNetworkChanged);
+      _netStateQueueNoListen = netQueue;
+      _netStateQueueNoListen?.addListener(_onNetworkChanged);
+    }
   }
 
   @override
   void dispose() {
+    _appStateNoListen?.removeListener(_appStateValuesChanged);
+    _themeProviderNoListen?.removeListener(_themeValuesChanged);
+    _webTextSizeNoListen?.removeListener(_webTextSizeChanged);
+    _netStateQueueNoListen?.removeListener(_onNetworkChanged);
+
     if (!_isWindowClosed) {
       _isWindowClosed = true;
       cleanListener();
@@ -896,6 +938,11 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
     pullToRefreshController = null;
     webViewHelper = null;
     _overlayController = null;
+
+    _appStateNoListen = null;
+    _themeProviderNoListen = null;
+    _webTextSizeNoListen = null;
+    _netStateQueueNoListen = null;
     _focusNode.dispose();
     WidgetsBinding.instance.removeObserver(this);
     InAppWebViewController.disposeKeepAlive(keepAlive);
@@ -929,6 +976,7 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
   void didChangePlatformBrightness() async {
     //WidgetsBinding.instance.platformDispatcher.onPlatformBrightnessChanged =  _brightnessListener; 被设置了， 这个函数不会调用
     super.didChangePlatformBrightness();
+
     if (!_isWindowClosed) {
       var tp = Provider.of<ThemeProvider>(context, listen: false);
       bool r = tp.updateSystemDarkTheme();
@@ -958,11 +1006,6 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
       } else {
         ZsLog.i('theme changed: systemChanged[$systemChanged] uri is null');
       }
-      // if (tp.isDarkThreme()) {
-      //   //TODO:白色切黑色主题的时候，在android 10下，会显示黑色遮罩
-      // } else {
-      //   //TODO：主题跟随系统模式下，在黑切白的时候 不会刷新
-      // }
     }
   }
 

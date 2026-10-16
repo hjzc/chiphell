@@ -41,6 +41,8 @@ class _BrowserRootState extends State<BrowserRoot> with AutomaticKeepAliveClient
 
   bool windowListenerFlag = false;
 
+  ThemeProvider? _themeProviderNoListen;
+
   //获得第一个widget
   BrowserMainView? getRoot() {
     return mainPageKey.currentWidget as BrowserMainView?;
@@ -182,11 +184,19 @@ class _BrowserRootState extends State<BrowserRoot> with AutomaticKeepAliveClient
     };
   }
 
+  void _themeValuesChanged() {
+    if (Utils.isDesktopSystem) {
+      //跟随系统主题时候休要修改窗口的主题
+      _updateWindowsTheme(null);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    //var appState = Provider.of<AppState>(context, listen: true); 注册依赖不能调用
     var appState = Provider.of<AppState>(context, listen: false);
-    // var themePro = Provider.of<ThemeProvider>(context, listen: false);
+
     // var webTextSize = Provider.of<WebTextSize>(context, listen: false);
     if (Utils.isDesktopSystem) {
       _initStateOnDesktopSystem(appState);
@@ -198,6 +208,15 @@ class _BrowserRootState extends State<BrowserRoot> with AutomaticKeepAliveClient
   @override
   didChangeDependencies() {
     super.didChangeDependencies();
+    // 在这里获取并缓存，此时 context 有效
+
+    var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    if (_themeProviderNoListen != themeProvider) {
+      _themeProviderNoListen?.removeListener(_themeValuesChanged);
+      _themeProviderNoListen = themeProvider;
+      _themeProviderNoListen?.addListener(_themeValuesChanged);
+    }
+
     if (shouldExit) {
     } else {
       var webTextSize = Provider.of<WebTextSize>(context, listen: false);
@@ -207,6 +226,8 @@ class _BrowserRootState extends State<BrowserRoot> with AutomaticKeepAliveClient
 
   @override
   void dispose() {
+    _themeProviderNoListen?.removeListener(_themeValuesChanged);
+    _themeProviderNoListen = null;
     if (Utils.isDesktopSystem) {
       AppState().tallValueChangesCallBack = null;
       ThemeProvider().tallValueChangesCallBack = null;
@@ -219,6 +240,7 @@ class _BrowserRootState extends State<BrowserRoot> with AutomaticKeepAliveClient
       //fix 桌面版本关掉log，移动设备版本不需要关闭
       //ZsLog.close();
     }
+    _themeProviderNoListen = null;
     ZsLog.d("browser root dispose");
     super.dispose();
   }

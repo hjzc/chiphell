@@ -37,7 +37,7 @@ class AppState extends ChangeNotifier {
   WebImageUrlDownloader webDownloadQueue = WebImageUrlDownloader();
 
   void Function(int event, AppState object)? tallValueChangesCallBack;
-  void Function(int event, AppState object)? talMainWebValueChangesCallBack;
+  //void Function(int event, AppState object)? talMainWebValueChangesCallBack;
   //macos window linux 有效
   static late String windowId;
 

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+
 import 'package:chiphell/data/Favorites.dart';
 import 'package:chiphell/modals/WebTextSize.dart';
 import 'package:chiphell/router/zj_router.dart';
@@ -17,6 +18,7 @@ import 'package:chiphell/modals/AppState.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tray_manager/tray_manager.dart';
+
 import 'data/black_list.dart';
 import 'router/system_ui_helper.dart';
 import 'web/home_page.dart';
@@ -24,7 +26,9 @@ import 'multi_windows/app_window_info.dart';
 import 'multi_windows/window_controller.dart';
 import 'theme/theme_app.dart';
 import 'theme/theme_provider.dart';
+
 import 'package:window_manager/window_manager.dart';
+
 import 'net/net_state.dart';
 import 'web/web_constants.dart';
 import '../utils/zs_log.dart';
@@ -172,6 +176,7 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
   GlobalKey browserPageKey = GlobalKey();
 
   StreamSubscription<void>? _windowsChangedSubscription;
+  ThemeProvider? _themeProviderNoListen;
 
   @override
   bool get wantKeepAlive => true;
@@ -187,7 +192,7 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
   }
 
   ///只支持windows macos linux
-  void _updateThemeOnDesktopSystem(ThemeProvider? themePro) {
+  void _updateWindowsTheme(ThemeProvider? themePro) {
     if (Utils.isDesktopSystem) {
       var theme = themePro ?? Provider.of<ThemeProvider>(context, listen: false);
       WindowUtil().winInfo.setBrightness(theme.isDarkThreme() ? Brightness.dark : Brightness.light);
@@ -235,7 +240,7 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
         return;
       }
       if (WebConstants.kThemeProviderChangedEventTheme == event) {
-        _updateThemeOnDesktopSystem(obj);
+        _updateWindowsTheme(obj);
         WindowUtil().winInfo.synWindowEventValue([WebConstants.kWinSubEventTheme, obj.currentThemeModeCode()]);
       }
     };
@@ -249,7 +254,7 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
             var val = value[1];
             if (val is int) {
               themePro.synThemeModeFromCode(val);
-              _updateThemeOnDesktopSystem(null);
+              _updateWindowsTheme(null);
               //转发给其他窗口
               WindowUtil().winInfo.synWindowValue(event, value, exclude: info);
             }
@@ -335,6 +340,13 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
     });
   }
 
+  void _themeValuesChanged() {
+    if (Utils.isDesktopSystem) {
+      //跟随系统主题时候休要修改窗口的主题
+      _updateWindowsTheme(null);
+    }
+  }
+
   @override
   void initState() {
     if (Utils.isDesktopSystem) {
@@ -345,6 +357,10 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
     var appState = Provider.of<AppState>(context, listen: false);
     var webTextSize = Provider.of<WebTextSize>(context, listen: false);
     var themePro = Provider.of<ThemeProvider>(context, listen: false);
+    // if (Utils.isDesktopSystem) {
+    //   themePro.addListener(_desktopThemeValuesChanged);
+    // }
+
     netMangager = InternetStatusManager()
       ..initInternetStatusManager(
         onInternetChanged: (result) {},
@@ -365,12 +381,21 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
   @override
   didChangeDependencies() {
     super.didChangeDependencies();
+    // 在这里获取并缓存，此时 context 有效
+    var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    if (_themeProviderNoListen != themeProvider) {
+      _themeProviderNoListen?.removeListener(_themeValuesChanged);
+      _themeProviderNoListen = themeProvider;
+      _themeProviderNoListen?.addListener(_themeValuesChanged);
+    }
     var webTextSize = Provider.of<WebTextSize>(context, listen: false);
     webTextSize.initSysTextZoom(WidgetsBinding.instance.platformDispatcher.textScaleFactor);
   }
 
   @override
   void dispose() {
+    _themeProviderNoListen?.removeListener(_themeValuesChanged);
+    _themeProviderNoListen = null;
     if (Utils.isDesktopSystem) {
       windowManager.removeListener(this);
       trayManager.removeListener(this);

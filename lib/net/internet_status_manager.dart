@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+
 import '../utils/zs_log.dart';
 
 // 定义回调函数类型
@@ -39,10 +41,10 @@ class InternetStatusManager {
     _onInternetConnected = onInternetConnected;
     _onInternetDisconnected = onInternetDisconnected;
     _connection = InternetConnection.createInstance(
-      checkInterval: Duration(seconds: 60),
+      checkInterval: Duration(seconds: 20),
       useDefaultOptions: false,
       customCheckOptions: [
-        //  InternetCheckOption(uri: Uri.parse('https://www.chiphell.com/')),
+        InternetCheckOption(uri: Uri.parse('https://www.chiphell.com/')),
         InternetCheckOption(uri: Uri.parse('https://www.baidu.com')),
       ],
     );
