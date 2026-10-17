@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:chiphell/theme/theme_app.dart';
 import 'package:chiphell/utils/aes_util.dart';
 import 'package:chiphell/utils/utils.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
 import '../data/app_prefs.dart';
 import '../data/zj_memory_cache.dart';
 import '../utils/zs_log.dart';
@@ -82,6 +84,74 @@ class ThemeProvider extends ChangeNotifier {
     """,
       injectionTime: UserScriptInjectionTime.AT_DOCUMENT_START,
     );
+  }
+
+  UserScript? windowsScrollBarUserScripter() {
+    UserScript? r;
+    if (Utils.isWindows()) {
+      r = UserScript(source: windowsWebViewScrollBarJs, injectionTime: UserScriptInjectionTime.AT_DOCUMENT_START);
+    }
+    return r;
+  }
+
+  String get windowsWebViewScrollBarJs {
+    const String js = """
+           (function() {
+            function injectStyle() {
+              var style = document.createElement('style');
+              style.setAttribute('type', 'text/css');
+              style.setAttribute('id', '_zjw_scrollbar_dark');
+              style.textContent = `
+                ::-webkit-scrollbar { width: 12px; background: transparent; }
+                ::-webkit-scrollbar-thumb { background: #555555; border-radius: 6px; }
+                ::-webkit-scrollbar-thumb:hover { background: #777777; }
+                ::-webkit-scrollbar-corner { background: transparent;}
+              `;
+              (document.head || document.documentElement).appendChild(style);
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', injectStyle);
+            } else {
+              injectStyle();
+            }
+          })();
+          """;
+    const String jsFn = """
+       function appWindowsUpdateScrollbarCss(toDark){
+            var darkIds = '_zjw_scrollbar_dark';
+            var lightIds = '_zjw_scrollbar_light';
+            var darkThumb = '#555555';
+            var lightThumb = '#C1C1C1';
+            var darkThumbHover = '#777777';
+            var lightThumbHover = '#A8A8A8';
+            var ids =toDark? lightIds:darkIds;
+            ids = "#"+ids;
+            var node = document.querySelector(ids);
+            if(node){
+              var ctx= node.innerHTML;
+              var c= ctx.replace(toDark?lightThumb:darkThumb,toDark?darkThumb:lightThumb);
+              c= c.replace(toDark?lightThumbHover:darkThumbHover,toDark?darkThumbHover:lightThumbHover);
+              node.setAttribute('id', toDark? darkIds:lightIds);
+              node.innerHTML = c;
+            }
+          }
+        """;
+    if (isDarkThreme()) {
+      return js + jsFn;
+    } else {
+      //rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.35)
+      var lightJs = js
+          .replaceFirst('_zjw_scrollbar_dark', '_zjw_scrollbar_light')
+          .replaceFirst('#555555', '#C1C1C1')
+          .replaceFirst('#777777', '#A8A8A8');
+
+      return lightJs + jsFn;
+    }
+  }
+
+  ///主題改變后，在windows平臺應該執行
+  String get windowsWebViewScrollBarUpdateJsFn {
+    return isDarkThreme() ? "appWindowsUpdateScrollbarCss(1)" : "appWindowsUpdateScrollbarCss(0)";
   }
 
   bool updateSystemDarkTheme() {

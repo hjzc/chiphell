@@ -170,9 +170,13 @@ class Utils {
   }
 
   static Future<bool> isMacos27() async {
-    final DeviceInfoPlugin deviceinfo = DeviceInfoPlugin();
-    final info = await deviceinfo.macOsInfo;
-    return info.majorVersion >= 27;
+    if (isMacOS()) {
+      final DeviceInfoPlugin deviceinfo = DeviceInfoPlugin();
+      final info = await deviceinfo.macOsInfo;
+      return info.majorVersion >= 27;
+    } else {
+      return false;
+    }
   }
 
   static bool urlIsSecure(Uri url) {

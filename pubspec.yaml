@@ -28,7 +28,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.21
 
 environment:
-  sdk: ^3.11.3  
+  sdk: ^3.13.5
   # ^3.9.2
 
 # Dependencies specify other packages that your package needs in order to work.
@@ -83,12 +83,12 @@ dependencies:
   #     path: packages/window_manager
   #     ref: 6fae92d21b4c80ce1b8f71c1190d7970cf722bd4
   window_manager:
-    path: packages/window_manager
+    path: ../packages/others/window_manager
   http: ^1.6.0
   upgrader: 13.4.0
   version: ^3.0.2
   #leak_tracker: ^11.0.2
-  connectivity_plus: ^7.3.1
+  connectivity_plus: ^7.3.2
   internet_connection_checker_plus: ^3.1.2
   auto_size_text_field: ^2.3.0
   #uuid: ^4.5.1 flutter_debouncer: ^2.1.1

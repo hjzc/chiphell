@@ -1037,6 +1037,7 @@ void WindowManager::SetOpacity(const flutter::EncodableMap& args) {
                              0x02);
 }
 
+//fixed windows 主题只能跟随系统 --zorro
 void WindowManager::SetBrightness(const flutter::EncodableMap& args) {
   DWORD light_mode;
   DWORD light_mode_size = sizeof(light_mode);
@@ -1049,9 +1050,21 @@ void WindowManager::SetBrightness(const flutter::EncodableMap& args) {
     std::string brightness =
         std::get<std::string>(args.at(flutter::EncodableValue("brightness")));
     HWND hWnd = GetMainWindow();
-    BOOL enable_dark_mode = light_mode == 0 && brightness == "dark";
+    
+    //BOOL enable_dark_mode =(light_mode == 1 && brightness == "dark")|| (light_mode == 0 && brightness == "dark");
+    BOOL enable_dark_mode = (brightness == "dark") ? TRUE : FALSE;
     DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE,
                           &enable_dark_mode, sizeof(enable_dark_mode));
+    
+   
+  }else{
+    std::string brightness =
+        std::get<std::string>(args.at(flutter::EncodableValue("brightness")));
+    HWND hWnd = GetMainWindow();
+     BOOL enable_dark_mode = brightness == "dark";
+     DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE,
+                          &enable_dark_mode, sizeof(enable_dark_mode));
+
   }
 }
 

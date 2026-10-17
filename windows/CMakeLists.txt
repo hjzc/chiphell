@@ -47,7 +47,18 @@ endfunction()
 
 # Flutter library and tool build rules.
 set(FLUTTER_MANAGED_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flutter")
+
+#--zorro add
+#Windows 系统当前代码页是 936（简体中文 GBK），而 connectivity_plus_plugin.cpp 源文件中包含了一个无法在 GBK 编码下表示的字符
+#在项目的 Windows CMake 配置中强制使用 UTF-8 编译
+add_compile_options(/utf-8)
+
 add_subdirectory(${FLUTTER_MANAGED_DIR})
+
+#--zorro add
+#Windows 系统当前代码页是 936（简体中文 GBK），而 connectivity_plus_plugin.cpp 源文件中包含了一个无法在 GBK 编码下表示的字符
+#在项目的 Windows CMake 配置中强制使用 UTF-8 编译
+add_compile_options(/utf-8)
 
 # Application build; see runner/CMakeLists.txt.
 add_subdirectory("runner")

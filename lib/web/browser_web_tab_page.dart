@@ -976,7 +976,6 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
   void didChangePlatformBrightness() async {
     //WidgetsBinding.instance.platformDispatcher.onPlatformBrightnessChanged =  _brightnessListener; 被设置了， 这个函数不会调用
     super.didChangePlatformBrightness();
-
     if (!_isWindowClosed) {
       var tp = Provider.of<ThemeProvider>(context, listen: false);
       bool r = tp.updateSystemDarkTheme();
@@ -1003,6 +1002,10 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
     } else {
       if (uri != null) {
         _updateWebAutoTheme(appState, themeProvider, uri, false);
+        if (Utils.isWindows()) {
+          //fixed window webview scrollbar color
+          await _webViewController?.evaluateJavascript(source: themeProvider.windowsWebViewScrollBarUpdateJsFn);
+        }
       } else {
         ZsLog.i('theme changed: systemChanged[$systemChanged] uri is null');
       }
@@ -2034,6 +2037,12 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
     if (webViewHelper?.supportNotification == true) {
       usList.add(themeProvider.jsNotificationApiUserScript);
       usList.add(themeProvider.jsNotificationDbUserScript);
+    }
+
+    //fixed windows theme web scrollbar background color error
+    UserScript? wsbus = themeProvider.windowsScrollBarUserScripter();
+    if (wsbus != null) {
+      usList.add(wsbus);
     }
 
     UserScript? textZoomScript = webTextSize.textZoomUserScript();

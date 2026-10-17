@@ -1017,6 +1017,10 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver, Automat
     } else {
       if (uri != null) {
         _updateWebAutoTheme(appState, themeProvider, uri, false);
+        if (Utils.isWindows()) {
+          //fixed window webview scrollbar color
+          await _webViewController?.evaluateJavascript(source: themeProvider.windowsWebViewScrollBarUpdateJsFn);
+        }
       } else {
         ZsLog.i('theme changed: systemChanged[$systemChanged] uri is null');
       }
@@ -2101,6 +2105,12 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver, Automat
     if (webViewHelper?.supportNotification == true) {
       usList.add(themeProvider.jsNotificationApiUserScript);
       usList.add(themeProvider.jsNotificationDbUserScript);
+    }
+
+    //fixed windows theme web scrollbar background color error
+    UserScript? wsbus = themeProvider.windowsScrollBarUserScripter();
+    if (wsbus != null) {
+      usList.add(wsbus);
     }
 
     UserScript? textZoomScript = webTextSize.textZoomUserScript();
