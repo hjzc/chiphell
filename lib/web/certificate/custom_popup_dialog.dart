@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../theme/theme_provider.dart';
 import '../../view/material_transparent_page_route.dart';
 
@@ -8,18 +9,12 @@ class CustomPopupDialogPageRoute<T> extends MaterialTransparentPageRoute<T> {
   final Duration? customTransitionDuration;
   bool isPopped = false;
 
-  CustomPopupDialogPageRoute({
-    required super.builder,
-    Duration? transitionDuration,
-    Color? overlayColor,
-    super.settings,
-  }) : overlayColor = overlayColor ?? const Color.fromARGB(128, 0, 0, 0),
-       customTransitionDuration = transitionDuration;
+  CustomPopupDialogPageRoute({required super.builder, Duration? transitionDuration, Color? overlayColor, super.settings})
+    : overlayColor = overlayColor ?? const Color.fromARGB(128, 0, 0, 0),
+      customTransitionDuration = transitionDuration;
 
   @override
-  Duration get transitionDuration => customTransitionDuration != null
-      ? customTransitionDuration!
-      : const Duration(milliseconds: 300);
+  Duration get transitionDuration => customTransitionDuration != null ? customTransitionDuration! : const Duration(milliseconds: 300);
 
   @override
   bool didPop(T? result) {
@@ -28,12 +23,7 @@ class CustomPopupDialogPageRoute<T> extends MaterialTransparentPageRoute<T> {
   }
 
   @override
-  Widget buildTransitions(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child,
-  ) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Stack(
@@ -65,11 +55,7 @@ class CustomPopupDialog extends StatefulWidget {
   final Widget child;
   final Duration transitionDuration;
 
-  const CustomPopupDialog({
-    super.key,
-    required this.child,
-    this.transitionDuration = const Duration(milliseconds: 300),
-  });
+  const CustomPopupDialog({super.key, required this.child, this.transitionDuration = const Duration(milliseconds: 300)});
 
   @override
   State<StatefulWidget> createState() => _CustomPopupDialogState();
@@ -85,10 +71,7 @@ class CustomPopupDialog extends StatefulWidget {
       transitionDuration: transitionDuration,
       overlayColor: overlayColor,
       builder: (context) {
-        return CustomPopupDialog(
-          transitionDuration: transitionDuration,
-          child: builder != null ? builder(context) : child!,
-        );
+        return CustomPopupDialog(transitionDuration: transitionDuration, child: builder != null ? builder(context) : child!);
       },
     );
     Navigator.push(context, route);
@@ -96,26 +79,20 @@ class CustomPopupDialog extends StatefulWidget {
   }
 }
 
-class _CustomPopupDialogState extends State<CustomPopupDialog>
-    with SingleTickerProviderStateMixin {
+class _CustomPopupDialogState extends State<CustomPopupDialog> with SingleTickerProviderStateMixin {
   late AnimationController _slideController;
   late Animation<Offset> _offsetSlideAnimation;
 
   @override
   void initState() {
     super.initState();
-    _slideController = AnimationController(
-      duration: widget.transitionDuration,
-      vsync: this,
-    );
+    _slideController = AnimationController(duration: widget.transitionDuration, vsync: this);
 
     var begin = const Offset(0.0, -1.0);
     var end = Offset.zero;
     var tween = Tween(begin: begin, end: end);
 
-    _offsetSlideAnimation = tween.animate(
-      CurvedAnimation(parent: _slideController, curve: Curves.ease),
-    );
+    _offsetSlideAnimation = tween.animate(CurvedAnimation(parent: _slideController, curve: Curves.ease));
 
     _slideController.forward();
   }
@@ -143,9 +120,7 @@ class _CustomPopupDialogState extends State<CustomPopupDialog>
             child: Container(
               padding: const EdgeInsets.all(15.0),
               width: MediaQuery.of(context).size.width,
-              color: themeProvider.isDarkThreme()
-                  ? const Color.fromARGB(255, 25, 25, 25)
-                  : Colors.white,
+              color: themeProvider.isDarkTheme() ? const Color.fromARGB(255, 25, 25, 25) : Colors.white,
               child: widget.child,
             ),
           ),

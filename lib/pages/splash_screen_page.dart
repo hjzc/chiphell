@@ -102,7 +102,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         }
         return ZjRouter.startSplashPage(
           context,
-          tp.isDarkThreme(),
+          tp.isDarkTheme(),
           () {
             ZsLog.i('Splash Init', time: DateTime.now());
           },

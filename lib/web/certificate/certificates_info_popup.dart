@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
+
 import 'package:chiphell/net/download_file.dart';
 import 'package:chiphell/theme/theme_provider.dart';
 import 'package:chiphell/utils/Toast.dart';
@@ -12,6 +13,7 @@ import 'package:intl/intl.dart';
 import 'package:collection/collection.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'certificate_constants.dart';
 
 class CertificateInfoPopup extends StatefulWidget {
@@ -44,7 +46,7 @@ class _CertificateInfoPopupState extends State<CertificateInfoPopup> {
     return _build(context, themeProvider);
   }
 
-  Color get titleColor => ThemeProvider().isDarkThreme() ? Colors.white54 : Colors.black54;
+  Color get titleColor => ThemeProvider().isDarkTheme() ? Colors.white54 : Colors.black54;
 
   Widget _build(BuildContext context, ThemeProvider themeProvider) {
     if (_topMainCertificate == null) {
@@ -73,7 +75,7 @@ class _CertificateInfoPopupState extends State<CertificateInfoPopup> {
               return Center(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: themeProvider.isDarkThreme() ? const Color.fromARGB(255, 53, 51, 51) : const Color.fromARGB(255, 186, 184, 184),
+                    color: themeProvider.isDarkTheme() ? const Color.fromARGB(255, 53, 51, 51) : const Color.fromARGB(255, 186, 184, 184),
                     borderRadius: BorderRadius.all(Radius.circular(2.5)),
                   ),
                   padding: const EdgeInsets.all(25.0),

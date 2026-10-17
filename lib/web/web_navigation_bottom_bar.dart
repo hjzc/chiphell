@@ -2,6 +2,7 @@ import 'package:chiphell/common/constants.dart';
 import 'package:chiphell/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../utils/utils.dart';
 
 enum WebNavBottomBarEvent {
@@ -173,14 +174,14 @@ class WebNavigationBottomBarState<T> extends State<WebNavigationBottomBar> {
   Widget _buildTopLine(BuildContext context) {
     var themeProvider = Provider.of<ThemeProvider>(context, listen: true);
     return Divider(
-      color: themeProvider.isDarkThreme()
+      color: themeProvider.isDarkTheme()
           ? Color.fromARGB(255, 42, 42, 42)
           : Color.fromARGB(
               240,
               214,
               214,
               217,
-            ), // themeProvider.isDarkThreme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
+            ), // themeProvider.isDarkTheme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
       height: 1, // 分割线高度
       indent: 0, // 分割线缩进
       endIndent: 0, // 分割线末端缩进
@@ -232,7 +233,7 @@ class WebNavigationBottomBarState<T> extends State<WebNavigationBottomBar> {
   //               0,
   //               0,
   //               0,
-  //             ), // themeProvider.isDarkThreme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
+  //             ), // themeProvider.isDarkTheme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
   //             height: 1, // 分割线高度
   //             indent: 0, // 分割线缩进
   //             endIndent: 0, // 分割线末端缩进
@@ -295,7 +296,7 @@ class WebNavigationBottomBarState<T> extends State<WebNavigationBottomBar> {
   //               0,
   //               0,
   //               0,
-  //             ), // themeProvider.isDarkThreme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
+  //             ), // themeProvider.isDarkTheme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
   //             height: 1, // 分割线高度
   //             indent: 0, // 分割线缩进
   //             endIndent: 0, // 分割线末端缩进

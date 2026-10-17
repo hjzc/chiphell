@@ -387,7 +387,7 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
     //   if (siteMode) {
 
     //   }
-    //   if (tp.isDarkThreme()) {
+    //   if (tp.isDarkTheme()) {
     //     settings.darkMode = true; //algorithmicDarkeningAllowed
     //     settings.algorithmicDarkeningAllowed = true;
     //     _webViewController?.setSettings(settings: settings);
@@ -1884,7 +1884,7 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
     return <Widget>[
       Expanded(
         flex: 1, //两个控件 有一个剩余空间。Expanded空间占用剩余空间
-        child: ((Utils.isAndroid() || Utils.isWindows() || Utils.isLinux()) && themeProvider.isDarkThreme())
+        child: ((Utils.isAndroid() || Utils.isWindows() || Utils.isLinux()) && themeProvider.isDarkTheme())
             ? indexStackModeOfContent(context, appState, themeProvider, webTextSize)
             : stackModeOfContent(context, appState, themeProvider, webTextSize),
       ),
@@ -1933,7 +1933,7 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
               (_webThemeReady == WebThemeSyncState.complete || _webThemeReady == WebThemeSyncState.delayCompleted)) ||
           (_webThemeReady == WebThemeSyncState.delayCompleted));
     }
-    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkThreme() && !s);
+    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkTheme() && !s);
     // return Stack(
     //   children: <Widget>[
     //     IndexedStack(
@@ -1966,7 +1966,7 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
         ((progress > themeProvider.webLoadDarkMaskMaxProgress) &&
             (_webThemeReady == WebThemeSyncState.complete || _webThemeReady == WebThemeSyncState.delayCompleted)) ||
         (_webThemeReady == WebThemeSyncState.delayCompleted));
-    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkThreme() && !finished);
+    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkTheme() && !finished);
   }
 
   Widget _stackContent(BuildContext context, AppState appState, ThemeProvider themeProvider, WebTextSize webTextSize, bool showMask) {
@@ -2415,7 +2415,7 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
       },
 
       onProgressChanged: (controller, progs) {
-        if ((progs >= 100) && themeProvider.isDarkThreme() && (Utils.isAndroidPad)) {
+        if ((progs >= 100) && themeProvider.isDarkTheme() && (Utils.isAndroidPad)) {
           //延时1秒
           Future.delayed(Duration(milliseconds: 1500), () {
             _updateWebLoadingProgress(appState, themeProvider, controller, progs, isDelay: true);

@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:chiphell/common/constants.dart';
 import 'package:chiphell/data/Favorites.dart';
 import 'package:chiphell/data/site_url_manager.dart';
@@ -16,6 +17,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
 import '../modals/url_search_resoult.dart';
 import '../theme/theme_provider.dart';
 import '../utils/utils.dart';
@@ -343,7 +345,7 @@ class BrowserMainViewState extends State<BrowserMainView> with AutomaticKeepAliv
         onPressed: () {
           _addWebViewTab();
         },
-        icon: Icon(Icons.add, color: themeProvider.isDarkThreme() ? Colors.white : Colors.blue),
+        icon: Icon(Icons.add, color: themeProvider.isDarkTheme() ? Colors.white : Colors.blue),
       ),
       titleSpacing: 0,
       title:
@@ -632,7 +634,7 @@ class BrowserMainViewState extends State<BrowserMainView> with AutomaticKeepAliv
         icon: Container(
           margin: const EdgeInsets.only(top: 5, bottom: 5),
           decoration: BoxDecoration(
-            border: Border.all(width: 2.0, color: themeProvider.isDarkThreme() ? Colors.white : Colors.blue),
+            border: Border.all(width: 2.0, color: themeProvider.isDarkTheme() ? Colors.white : Colors.blue),
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(5.0),
           ),
@@ -641,7 +643,7 @@ class BrowserMainViewState extends State<BrowserMainView> with AutomaticKeepAliv
             child: Text(
               webViewTabs.length.toString(),
               style: TextStyle(
-                color: themeProvider.isDarkThreme() ? Colors.white : Colors.blue,
+                color: themeProvider.isDarkTheme() ? Colors.white : Colors.blue,
                 fontWeight: FontWeight.bold,
                 fontSize: 14.0,
               ),

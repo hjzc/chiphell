@@ -4,6 +4,7 @@ import 'package:chiphell/utils/ui_utils.dart';
 import 'package:chiphell/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import 'common/type_utils.dart';
 import 'view/keep_alive_wrapper.dart';
 import '../utils/zs_log.dart';
@@ -253,14 +254,14 @@ class FavoritesManagerPageState extends State<FavoritesManagerPage> with SingleT
   // Widget _buildTopLine(BuildContext context) {
   //   var themeProvider = Provider.of<ThemeProvider>(context, listen: true);
   //   return Divider(
-  //     color: themeProvider.isDarkThreme()
+  //     color: themeProvider.isDarkTheme()
   //         ? Color.fromARGB(255, 42, 42, 42)
   //         : Color.fromARGB(
   //             240,
   //             214,
   //             214,
   //             217,
-  //           ), // themeProvider.isDarkThreme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
+  //           ), // themeProvider.isDarkTheme() ? const Color.fromARGB(250, 12, 12, 12) : Colors.white, // 分割线颜色
   //     height: 1, // 分割线高度
   //     indent: 0, // 分割线缩进
   //     endIndent: 0, // 分割线末端缩进

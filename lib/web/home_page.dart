@@ -1999,7 +1999,7 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver, Automat
     return <Widget>[
       Expanded(
         flex: 1, //两个控件 有一个剩余空间。Expanded空间占用剩余空间,保证Expand最大化
-        child: ((Utils.isAndroid() || Utils.isWindows() || Utils.isLinux()) && Provider.of<ThemeProvider>(context).isDarkThreme())
+        child: ((Utils.isAndroid() || Utils.isWindows() || Utils.isLinux()) && Provider.of<ThemeProvider>(context).isDarkTheme())
             ? indexStackModeOfContent(context, appState, themeProvider, webTextSize)
             : stackModeOfContent(context, appState, themeProvider, webTextSize),
       ),
@@ -2055,7 +2055,7 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver, Automat
     //     //LinearProgressIndicator(value: progress, minHeight: 2),
     //   ],
     // );
-    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkThreme() && !s);
+    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkTheme() && !s);
   }
 
   //ios ipad macos
@@ -2066,7 +2066,7 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver, Automat
         ((progress > themeProvider.webLoadDarkMaskMaxProgress) &&
             (_webThemeReady == WebThemeSyncState.complete || _webThemeReady == WebThemeSyncState.delayCompleted)) ||
         (_webThemeReady == WebThemeSyncState.delayCompleted));
-    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkThreme() && !finished);
+    return _stackContent(context, appState, themeProvider, webTextSize, themeProvider.isDarkTheme() && !finished);
   }
 
   Widget _stackContent(BuildContext context, AppState appState, ThemeProvider themeProvider, WebTextSize webTextSize, bool showMask) {
@@ -2550,7 +2550,7 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver, Automat
       },
 
       onProgressChanged: (controller, progs) {
-        if ((progs >= 100) && themeProvider.isDarkThreme() && (Utils.isAndroidPad)) {
+        if ((progs >= 100) && themeProvider.isDarkTheme() && (Utils.isAndroidPad)) {
           //延时1秒
           // Future.delayed(Duration(milliseconds: 1500), () {
           _updateWebLoadingProgress(appState, themeProvider, controller, progs, isDelay: true);

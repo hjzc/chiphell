@@ -51,7 +51,7 @@ class _BrowserRootState extends State<BrowserRoot> with AutomaticKeepAliveClient
   void _updateWindowsTheme(ThemeProvider? themePro) {
     if (Utils.isDesktopSystem) {
       var theme = themePro ?? Provider.of<ThemeProvider>(context, listen: false);
-      WindowUtil().winInfo.setBrightness(theme.isDarkThreme() ? Brightness.dark : Brightness.light);
+      WindowUtil().winInfo.setBrightness(theme.isDarkTheme() ? Brightness.dark : Brightness.light);
     }
   }
 

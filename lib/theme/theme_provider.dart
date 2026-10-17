@@ -136,7 +136,7 @@ class ThemeProvider extends ChangeNotifier {
             }
           }
         """;
-    if (isDarkThreme()) {
+    if (isDarkTheme()) {
       return js + jsFn;
     } else {
       //rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.35)
@@ -151,7 +151,7 @@ class ThemeProvider extends ChangeNotifier {
 
   ///主題改變后，在windows平臺應該執行
   String get windowsWebViewScrollBarUpdateJsFn {
-    return isDarkThreme() ? "appWindowsUpdateScrollbarCss(1)" : "appWindowsUpdateScrollbarCss(0)";
+    return isDarkTheme() ? "appWindowsUpdateScrollbarCss(1)" : "appWindowsUpdateScrollbarCss(0)";
   }
 
   bool updateSystemDarkTheme() {
@@ -243,7 +243,7 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   //当前app theme 模式
-  bool isDarkThreme() {
+  bool isDarkTheme() {
     bool rc = isSystemDarkTheme;
     if (_themeMode == ThemeMode.light) {
       rc = false;
@@ -254,7 +254,7 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   Brightness themeBrightness() {
-    return isDarkThreme() ? Brightness.dark : Brightness.light;
+    return isDarkTheme() ? Brightness.dark : Brightness.light;
   }
 
   //获得应用本身当前主题的是否为暗黑模式
@@ -290,9 +290,9 @@ class ThemeProvider extends ChangeNotifier {
 
   SystemUiOverlayStyle getWebPageUIOverlayStyle() {
     if (Utils.isAndroid()) {
-      return ThemeApp.androidStatusBar(isDarkThreme());
+      return ThemeApp.androidStatusBar(isDarkTheme());
     } else {
-      return ThemeApp.statusBar(isDarkThreme());
+      return ThemeApp.statusBar(isDarkTheme());
     }
   }
 
@@ -327,7 +327,7 @@ class ThemeProvider extends ChangeNotifier {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-    @media (prefers-color-scheme: ${isDarkThreme() ? "light" : "dark"}) {body {background:black !important; background-color: black !important;color: white !important; }}
+    @media (prefers-color-scheme: ${isDarkTheme() ? "light" : "dark"}) {body {background:black !important; background-color: black !important;color: white !important; }}
     ${await InAppWebViewController.tRexRunnerCss}
     </style>
     <style>

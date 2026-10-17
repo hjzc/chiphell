@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
+
 import '../../theme/theme_provider.dart';
 import './custom_popup_dialog.dart';
 import 'certificate_constants.dart';
@@ -36,7 +37,7 @@ class _UrlInfoPopupState extends State<UrlInfoPopup> {
   var text2 = CertificateConstants.noSecureDetail;
   //
   //     "You should not enter sensitive data on this site (e.g. passwords or credit cards) because they could be intercepted by malicious users.";
-  bool isdark = ThemeProvider().isDarkThreme();
+  bool isdark = ThemeProvider().isDarkTheme();
   var showFullInfoUrl = false;
 
   late TextStyle defaultTextSpanStyle;
@@ -62,7 +63,7 @@ class _UrlInfoPopupState extends State<UrlInfoPopup> {
     }
     var url = widget.url;
     var themeProvider = Provider.of<ThemeProvider>(context, listen: true);
-    Color titleColor = themeProvider.isDarkThreme() ? Colors.white54 : Colors.black54;
+    Color titleColor = themeProvider.isDarkTheme() ? Colors.white54 : Colors.black54;
 
     defaultTextSpanStyle = TextStyle(color: titleColor, fontSize: 12.5);
 
@@ -89,14 +90,14 @@ class _UrlInfoPopupState extends State<UrlInfoPopup> {
                         TextSpan(
                           text: url.scheme,
                           style: defaultTextSpanStyle.copyWith(
-                            color: widget.isSecure ? Colors.green : (themeProvider.isDarkThreme() ? Colors.white54 : Colors.black54),
+                            color: widget.isSecure ? Colors.green : (themeProvider.isDarkTheme() ? Colors.white54 : Colors.black54),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         TextSpan(text: url.toString() == "about:blank" ? ':' : '://', style: defaultTextSpanStyle),
                         TextSpan(
                           text: url.host,
-                          style: defaultTextSpanStyle.copyWith(color: (themeProvider.isDarkThreme() ? Colors.white : Colors.black)),
+                          style: defaultTextSpanStyle.copyWith(color: (themeProvider.isDarkTheme() ? Colors.white : Colors.black)),
                         ),
                         TextSpan(text: url.path, style: defaultTextSpanStyle),
                         TextSpan(text: url.query, style: defaultTextSpanStyle),

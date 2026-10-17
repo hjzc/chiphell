@@ -1,10 +1,12 @@
 import 'dart:async';
+
 import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+
 import '../modals/AppState.dart';
 import '../modals/url_search_resoult.dart';
 import '../theme/theme_provider.dart';
@@ -279,7 +281,7 @@ class TextfiledDropDownState<T> extends State<TextfiledDropDown> with SingleTick
     String ttValue = widget.textValue;
     // final hint = WebConstants.kWebUrlAddressInputHint;
     // '搜索或输入网站名称';
-    bool isDark = themeProvider.isDarkThreme();
+    bool isDark = themeProvider.isDarkTheme();
     EdgeInsets contentEI = EdgeInsets.fromLTRB((widget.isSecure != null) ? 0 : 38, 4, 0, 4); //调整这个值来垂直居中,
 
     return Padding(

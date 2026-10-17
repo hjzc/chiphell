@@ -73,7 +73,7 @@ Future<void> main(List<String> args) async {
     ZsLog.d('Window id:${windowController.windowId} arguments: $arguments');
     info.windowId = windowController.windowId;
     info.arguments = arguments;
-    await WindowUtil.setWindowFunctions(info, ThemeProvider().isDarkThreme());
+    await WindowUtil.setWindowFunctions(info, ThemeProvider().isDarkTheme());
 
     if (arguments.businessId == WindowArguments.businessIdMain) {
       return runApp(
@@ -195,7 +195,7 @@ class _MyAppState extends State<MyApp> with WindowListener, TrayListener, Automa
   void _updateWindowsTheme(ThemeProvider? themePro) {
     if (Utils.isDesktopSystem) {
       var theme = themePro ?? Provider.of<ThemeProvider>(context, listen: false);
-      WindowUtil().winInfo.setBrightness(theme.isDarkThreme() ? Brightness.dark : Brightness.light);
+      WindowUtil().winInfo.setBrightness(theme.isDarkTheme() ? Brightness.dark : Brightness.light);
     }
   }
 

@@ -8,14 +8,8 @@ import 'package:provider/provider.dart';
 class WebViewFindBar extends StatefulWidget implements PreferredSizeWidget {
   final double height;
   final WebViewHelper webViewHelper;
-  final void Function(String? searchText, int numberOfMatches, bool hide)?
-  callFunc;
-  const WebViewFindBar({
-    super.key,
-    required this.height,
-    required this.webViewHelper,
-    required this.callFunc,
-  });
+  final void Function(String? searchText, int numberOfMatches, bool hide)? callFunc;
+  const WebViewFindBar({super.key, required this.height, required this.webViewHelper, required this.callFunc});
 
   @override
   Size get preferredSize => Size.fromHeight(height);
@@ -60,30 +54,18 @@ class WebViewFindBarState extends State<WebViewFindBar> {
   @override
   void initState() {
     super.initState();
-    widget.webViewHelper.findResoultCall =
-        (activeMatchOrdinal, numberOfMatches, isDoneCounting) {
-          _updateFindResoult(
-            activeMatchOrdinal,
-            numberOfMatches,
-            isDoneCounting,
-          );
-        };
+    widget.webViewHelper.findResoultCall = (activeMatchOrdinal, numberOfMatches, isDoneCounting) {
+      _updateFindResoult(activeMatchOrdinal, numberOfMatches, isDoneCounting);
+    };
   }
 
-  FindInteractionController? get findInteractionController =>
-      widget.webViewHelper.findController;
+  FindInteractionController? get findInteractionController => widget.webViewHelper.findController;
 
-  void _updateFindResoult(
-    int activeMatchOrdinal,
-    int numberOfMatches,
-    bool isDoneCounting,
-  ) async {
+  void _updateFindResoult(int activeMatchOrdinal, int numberOfMatches, bool isDoneCounting) async {
     if (isDoneCounting) {
       if (mounted) {
         setState(() {
-          textFound = numberOfMatches > 0
-              ? '${activeMatchOrdinal + 1} of $numberOfMatches'
-              : (lastFindText.isNotEmpty ? '0' : '');
+          textFound = numberOfMatches > 0 ? '${activeMatchOrdinal + 1} of $numberOfMatches' : (lastFindText.isNotEmpty ? '0' : '');
         });
       }
       if (widget.callFunc != null) {
@@ -125,7 +107,7 @@ class WebViewFindBarState extends State<WebViewFindBar> {
   }
 
   Widget bottomFindBar(BuildContext context, ThemeProvider themeProvider) {
-    bool isDark = themeProvider.isDarkThreme();
+    bool isDark = themeProvider.isDarkTheme();
     return AppBar(
       titleSpacing: 10.0,
       title: SizedBox(
@@ -145,9 +127,7 @@ class WebViewFindBarState extends State<WebViewFindBar> {
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(10.0),
             filled: true,
-            fillColor: isDark
-                ? Color(0xFF303030)
-                : Color.fromARGB(255, 224, 222, 222),
+            fillColor: isDark ? Color(0xFF303030) : Color.fromARGB(255, 224, 222, 222),
             border: outlineBorder,
             focusedBorder: outlineBorder,
             enabledBorder: outlineBorder,
@@ -155,9 +135,7 @@ class WebViewFindBarState extends State<WebViewFindBar> {
             hintText: "在页面上查找。。。。。。", //"Find on page ...",
             hintStyle: const TextStyle(color: Colors.grey),
           ),
-          style: Theme.of(
-            context,
-          ).textTheme.titleSmall, //const TextStyle(color: Colors.black),
+          style: Theme.of(context).textTheme.titleSmall, //const TextStyle(color: Colors.black),
           onTap: () {
             // FocusScope.of(context).unfocus();
             //   _focusNode.requestFocus();
