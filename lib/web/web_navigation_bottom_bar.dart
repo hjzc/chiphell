@@ -10,6 +10,7 @@ enum WebNavBottomBarEvent {
   backAllParent,
   //主页
   home,
+  longHome,
   //后退
   back,
   //返回打开过的父亲
@@ -53,6 +54,10 @@ class WebNavigationBottomBarState<T> extends State<WebNavigationBottomBar> {
       ),
       IconButton(
         icon: const Icon(Icons.home),
+        onLongPress: () {
+          //goto current forum
+          widget.eventCallBack(WebNavBottomBarEvent.longHome);
+        },
         onPressed: () {
           //去主页面
           widget.eventCallBack(WebNavBottomBarEvent.home);

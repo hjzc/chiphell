@@ -3227,6 +3227,8 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver, Automat
           _handleBackMenu(true);
         } else if (event == WebNavBottomBarEvent.home) {
           webViewHelper?.goSiteHome();
+        } else if (event == WebNavBottomBarEvent.longHome) {
+          webViewHelper?.goLongSiteHome();
         } else if (event == WebNavBottomBarEvent.back) {
           _handleBackMenu(false);
         } else if (event == WebNavBottomBarEvent.backParent) {

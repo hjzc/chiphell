@@ -3041,20 +3041,8 @@ class TabWebPageState extends State<BrowserWebTabPage> with WidgetsBindingObserv
           } else {
             _pageAutoClose();
           }
-
-          // WebSite? vsite = site;
-          // String? gurl = vsite?.homeUrl(appState.isMobileUA());
-          // gurl ??= appState.getLoadHomeUrl();
-          // if (isSiteMode || Utils.isMobile()) {
-          //   String? url = await _getWebCurrentUrl();
-          //   if (url != gurl) {
-          //     await webViewOpenUrl(gurl);
-          //   }
-          // } else if (Utils.isDesktopSystem) {
-          //   await webViewOpenUrl(gurl);
-          // } else {
-          //   _pageAutoClose();
-          // }
+        } else if (event == WebNavBottomBarEvent.longHome) {
+          webViewHelper?.goLongSiteHome(autoEnable: true);
         } else if (event == WebNavBottomBarEvent.back) {
           //_handleBackMenu(false,callGoBack: true,enableBackForum:false);
           await goBack();

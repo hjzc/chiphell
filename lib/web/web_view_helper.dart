@@ -249,6 +249,15 @@ class WebViewHelper {
     return await webViewOpenUrl(v);
   }
 
+  Future<bool> goLongSiteHome({bool autoEnable = false}) async {
+    bool mb = _getWebIsMobileUASyn();
+    var v = _getWebSiteSyn()?.areaUrl(mb);
+    if (autoEnable && v == null) {
+      v = AppState.site.areaUrl(mb);
+    }
+    return await webViewOpenUrl(v);
+  }
+
   void saveLastUrl(String? urlStr) {
     if (_lastUrlDebouncer == null) {
       WebSite? v = _getWebSiteSyn();
